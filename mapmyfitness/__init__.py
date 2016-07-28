@@ -1,5 +1,6 @@
 from .api.config import APIConfig
 from .api.route import Route
+from .api.actigraphy import Actigraphy
 from .api.activity_type import ActivityType
 from .api.user import User, UserProfilePhoto
 from .api.workout import Workout
@@ -23,6 +24,7 @@ class MapMyFitness(object):
     def __init__(self, api_key, access_token, cache_finds=False):
         api_config = APIConfig(api_key=api_key, access_token=access_token)
         self.route = Route(api_config=api_config, cache_finds=cache_finds)
+        self.actigraphy = Actigraphy(api_config=api_config, cache_finds=cache_finds)
         self.workout = Workout(api_config=api_config, cache_finds=cache_finds)
         self.user = User(api_config=api_config, cache_finds=cache_finds)
         self._user_profile_photo = UserProfilePhoto(api_config=api_config, cache_finds=cache_finds)
@@ -47,3 +49,4 @@ class MapMyFitness(object):
         Drops the instance of the singleton (for testing purposes)
         """
         cls._instance = None
+

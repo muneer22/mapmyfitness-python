@@ -43,6 +43,8 @@ class WorkoutValidator(BaseValidator):
                                 self.add_error('Workout time_series {0} must be a 2-list with each item being of type int or float.'.format(time_series_key))
 
     def validate_search(self):
+        print "workout validate_search"
+
         search_kwargs = self.search_kwargs
 
         if 'user' not in search_kwargs or ('user' in search_kwargs and not isinstance(search_kwargs['user'], int)):
