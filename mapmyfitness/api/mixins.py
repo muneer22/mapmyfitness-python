@@ -12,7 +12,6 @@ class Deleteable(object):
 class Searchable(object):
     def _search(self, params):
         api_resp = self.call('get', self.path + '/', params=params)
-
         objs = []
         for obj in api_resp['_embedded'][self.embedded_name]:
             serializer = self.serializer_class(obj)

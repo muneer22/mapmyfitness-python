@@ -5,6 +5,7 @@ from .api.activity_type import ActivityType
 from .api.user import User, UserProfilePhoto
 from .api.workout import Workout
 from .api.weight import BodyMass
+from .api.sleep import Sleep
 from .exceptions import NotInitializedException
 
 
@@ -31,6 +32,8 @@ class MapMyFitness(object):
         self._user_profile_photo = UserProfilePhoto(api_config=api_config, cache_finds=cache_finds)
         self.activity_type = ActivityType(api_config=api_config, cache_finds=cache_finds)
         self.bodymass = BodyMass(api_config=api_config, cache_finds=cache_finds)
+        self.sleep = Sleep(api_config=api_config, cache_finds=cache_finds)
+
 
     @classmethod
     def instance(cls):
@@ -51,5 +54,4 @@ class MapMyFitness(object):
         Drops the instance of the singleton (for testing purposes)
         """
         cls._instance = None
-
 

@@ -2,7 +2,7 @@ import re
 from .base import BaseValidator
 
 
-class WeightValidator(BaseValidator):
+class SleepValidator(BaseValidator):
     def validate_search(self):
 
         search_kwargs = self.search_kwargs
@@ -16,5 +16,8 @@ class WeightValidator(BaseValidator):
             if datetime_arg == "target_start_datetime" and datetime_arg not in search_kwargs:
                 self.add_error('target_start_datetime is required field')
 
-            elif datetime_arg == "target_start_datetime" and not datetime_format.match(search_kwargs["target_start_datetime"]):
+            elif not datetime_format.match(search_kwargs[datetime_arg]):
                     self.add_error('{0}  must be an ISO8601 string with offset.'.format(datetime_arg))
+
+        if not search_kwargs.get("field_set"):
+            search_kwargs.pop("field_set")

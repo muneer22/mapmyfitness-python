@@ -3,6 +3,7 @@ from .objects.route import RouteObject
 from .objects.workout import WorkoutObject
 from .objects.actigraphy import ActigraphObject
 from .objects.weight import WeightObject
+from .objects.sleep import SleepObject
 from .objects.user import UserObject, UserProfilePhotoObject
 
 
@@ -38,3 +39,6 @@ class ActigraphSerializer(BaseSerializer):
 
 class WeightSerializer(BaseSerializer):
 	object_class = WeightObject
+
+class SleepSerializer(BaseSerializer):
+    object_class = SleepObject
