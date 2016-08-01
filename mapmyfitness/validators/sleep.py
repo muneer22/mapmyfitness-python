@@ -18,6 +18,3 @@ class SleepValidator(BaseValidator):
 
             elif not datetime_format.match(search_kwargs[datetime_arg]):
                     self.add_error('{0}  must be an ISO8601 string with offset.'.format(datetime_arg))
-
-        if not search_kwargs.get("field_set"):
-            search_kwargs.pop("field_set")

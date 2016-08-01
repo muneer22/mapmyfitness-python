@@ -55,3 +55,21 @@ class MapMyFitness(object):
         """
         cls._instance = None
 
+if __name__ == '__main__':
+    api_key = "vd9aadfjcrd6ncae2wx92mc8tm4zfnx2"
+    access_token = "1b657391aceca2d50db6b4c98af6d5d5b70156e5"
+
+    workouts_paginator = MapMyFitness(api_key, access_token).sleep.search(
+                target_start_datetime="2016-04-12T09:00:42+00:00",\
+                 target_end_datetime="2016-08-01T09:00:42+00:00", \
+                 field_set='')
+    
+
+    page_count = workouts_paginator.num_pages  # 2
+    page_range = workouts_paginator.page_range # [1, 2]
+    total_count = workouts_paginator.count # 58
+
+    for page_num in page_range:
+        the_page = workouts_paginator.page(page_num)
+        for workout in the_page:
+            print (workout.original_dict)#.energy_expended_total
