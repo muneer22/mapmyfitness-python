@@ -83,7 +83,7 @@ class Findable(object):
             if self.__class__.__name__ == 'Route':
                 # Routes are special, and need to be requested with additional params
                 params = {'field_set': 'detailed'}
-            api_resp = self.call('get', '{0}/{1}'.format(self.path, id), params=params)
+            api_resp = self.call('get', '{0}/{1}/'.format(self.path, id), params=params)
             serializer = self.serializer_class(api_resp)
             serialized = serializer.serialized
             if self.cache_finds:

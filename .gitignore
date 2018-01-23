@@ -33,3 +33,5 @@ htmlcov
 
 venv
 go.py
+.idea
+.travis.yml
